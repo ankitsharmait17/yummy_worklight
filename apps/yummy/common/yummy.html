@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>yummy</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+	<link rel="stylesheet" href="css/themes/yummy.css" />
+  <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" /> 
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> 
+  <script src="http://maps.googleapis.com/maps/api/js"></script>
+  
+	<script>window.$ = window.jQuery = WLJQ;</script>
+</head>
+<body id="content" style="display: none;">
+	
+	
+	
+	<!-- ***************************HOME PAGE****************************** -->
+	<div data-role="page" id="pghome" >
+		<div data-role="header">
+		<h2>YUMMY !</h2>
+		</div>
+		<div data-role="content">
+			<img border="0" src="yummy.png" width="300" height="300"> <br>
+			<a data-role="button" href="#pgbrowse">Browse Restaurant</a><br>
+		<a data-role="button" href="#pgmap" onClick="initialize()"  >Nearest Restaurants</a><br>
+		 
+		</div>
+	</div>
+	
+	<!-- *****************************MAP PAGE********************************* -->
+	
+	<div data-role="page" id="pgmap">
+		
+		<div data-role="header">
+		<div data-role="navbar">
+			<ul>
+			<li><a href="#pghome" data-role="button" >Home</a></li>
+			<li><input type="button" value="refresh" onClick="document.location.reload(true)"></li>		
+			</ul>		
+		</div>
+		</div>
+		<div data-role="content">
+			
+		
+			    <div id="googleMap" style="width:440px;height:380px;"></div>
+			
+		</div>
+	</div>
+	
+	<!-- ************** Avani reg page ********************** -->
+	
+	<div data-role="page" id="pgavi">
+	<div data-role="header">
+	<h3 id="aname">Avani Mall</h3>
+	<a href="#pgmap" data-role="button" data-icon="arrow-l"></a>
+	</div>
+	<div data-role="content">
+	<label for="cus_name">Name</label>
+	<input type="text" name="cus_name" id="acus_name">
+	<input type="button" value="8-8.30 PM" onclick="favni(this.id)" id="at1">
+	<input type="button" value="8.30-9 PM" onclick="favni(this.id)" id="at2">
+	<input type="button" value="9-9.30 PM" onclick="favni(this.id)" id="at3">
+	<input type="button" value="9.30-10 PM" onclick="favni(this.id)" id="at4">
+	</div>
+	</div>
+	
+	
+	<!-- ************** South City reg page ********************** -->
+	
+	<div data-role="page" id="pgsouth">
+	<div data-role="header">
+	<h3 id="sname">South City Mall</h3>
+	<a href="#pgmap" data-role="button" data-icon="arrow-l"></a>
+	</div>
+	<div data-role="content">
+	<label for="cus_name">Name</label>
+	<input type="text" name="cus_name" id="scus_name">
+	<input type="button" value="8-8.30 PM" onclick="fsouth(this.id)" id="st1">
+	<input type="button" value="8.30-9 PM" onclick="fsouth(this.id)" id="st2">
+	<input type="button" value="9-9.30 PM" onclick="fsouth(this.id)" id="st3">
+	<input type="button" value="9.30-10 PM" onclick="fsouth(this.id)" id="st4">
+	</div>
+	</div>
+	
+	
+	
+	<!-- ************** Quest Mall reg page ********************** -->
+	
+	<div data-role="page" id="pgquest">
+	<div data-role="header">
+	<h3 id="qname">Quest Mall</h3>
+	<a href="#pgmap" data-role="button" data-icon="arrow-l"></a>
+	</div>
+	<div data-role="content">
+	<label for="cus_name">Name</label>
+	<input type="text" name="cus_name" id="qcus_name">
+	<input type="button" value="8-8.30 PM" onclick="fquest(this.id)" id="qt1">
+	<input type="button" value="8.30-9 PM" onclick="fquest(this.id)" id="qt2">
+	<input type="button" value="9-9.30 PM" onclick="fquest(this.id)" id="qt3">
+	<input type="button" value="9.30-10 PM" onclick="fquest(this.id)" id="qt4">
+	</div>
+	</div>
+	
+	
+	
+	
+	<!-- ************** City Center reg page ********************** -->
+	
+	<div data-role="page" id="pgcity">
+	<div data-role="header">
+	<h3 id="cname">City Center</h3>
+	<a href="#pgmap" data-role="button" data-icon="arrow-l"></a>
+	</div>
+	<div data-role="content">
+	<label for="cus_name">Name</label>
+	<input type="text" name="cus_name" id="ccus_name">
+	<input type="button" value="8-8.30 PM" onclick="fcity(this.id)" id="ct1">
+	<input type="button" value="8.30-9 PM" onclick="fcity(this.id)" id="ct2">
+	<input type="button" value="9-9.30 PM" onclick="fcity(this.id)" id="ct3">
+	<input type="button" value="9.30-10 PM" onclick="fcity(this.id)" id="ct4">
+	</div>
+	</div>
+	
+	
+	<!-- **************************BROWSE PAGE************************************ -->
+	
+	
+	<div data-role="page" id="pgbrowse">
+	<div data-role="header">
+	<h2>Restaurant List</h2>
+	<a href="#pghome" data-role="button" data-icon="arrow-l"></a>
+	</div>
+	<div data-role="content" ></div>
+	
+	<a data-role="button" href="#pgavi">Avani Mall</a>
+	<a data-role="button" href="#pgquest">Quest Mall</a>
+	<a data-role="button" href="#pgsouth">South City</a>
+	<a data-role="button" href="#pgcity">City Center</a>
+	
+	
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<script src="js/initOptions.js"></script>
+	<script src="js/yummy.js"></script>
+	<script src="js/messages.js"></script>
+</body>
+</html>
